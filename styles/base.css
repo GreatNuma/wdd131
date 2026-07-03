@@ -1,0 +1,150 @@
+/* Custom CSS Variables for styling consistency */
+:root {
+    --primary-color: #214d6e; /* Dark Blue from screenshot */
+    --nav-bg: #333333;       /* Dark Gray */
+    --nav-hover: #555555;
+    --text-dark: #333333;
+    --white: #ffffff;
+    --footer-highlight: #d1ff52; /* Yellow-green for date */
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    background-color: var(--white);
+}
+
+/* Header Styling */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+#course-title {
+    display: block;
+    font-size: 1.6rem;
+    font-family: var(--font-heading);
+}
+
+/* Navigation Styling with Flexbox */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--nav-bg);
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--nav-hover);
+}
+
+/* Main Content Styling with CSS Grid */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr; /* Single column default for mobile */
+    gap: 1.5rem;
+}
+
+/* Media Query for Desktop Grid Layout */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 2fr 1fr; /* Matches ratio of screenshot */
+    }
+    h1 {
+        grid-column: 1 / -1; /* Spans the entire top row */
+    }
+}
+
+h1 {
+    text-align: center;
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+/* Card Elements */
+.card {
+    border: 1px solid #d3d3d3;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.card h2 {
+    background-color: var(--primary-color);
+    color: var(--white);
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
+.card h3 {
+    text-align: center;
+    border-top: 1px solid #d3d3d3;
+    margin: 1rem 2rem;
+    padding-top: 1rem;
+    font-family: var(--font-heading);
+}
+
+.card-content-layout {
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    line-height: 1.6;
+}
+
+.card-content-layout img {
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resources-list {
+    padding: 1.5rem 2.5rem;
+    line-height: 2;
+}
+
+.resources-list a {
+    color: #0033cc;
+    text-decoration: none;
+}
+
+.resources-list a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+#lastModified {
+    color: var(--footer-highlight);
+    font-size: 0.9rem;
+}
