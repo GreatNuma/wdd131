@@ -1,4 +1,3 @@
-/* Desktop view applies only above 768px */
 @media (min-width: 768px) {
     
     header {
@@ -8,32 +7,29 @@
         padding: 1rem 2rem;
     }
 
-    /* Hide the hamburger button */
     #menu {
         display: none;
     }
 
-    /* Override mobile display:none to show a flex row */
-    .navigation {
+    /* Fixed: Target 'nav' element directly and explicitly declare display: flex */
+    nav {
         display: flex;
         flex-direction: row;
         margin-top: 0;
     }
 
-    .navigation a {
+    nav a {
         margin-bottom: 0;
         margin-left: 0.5rem;
         background-color: transparent;
         border-radius: 4px;
     }
 
-    /* Grid Layout: Responsive multi-column for large screens */
     .gallery-grid {
-        /* auto-fit and minmax handles the responsive column logic nicely */
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
     
     main {
-        max-width: 1000px; /* Optional: Give the grid more room to breathe on desktop */
+        max-width: 1000px; 
     }
 }

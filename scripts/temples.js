@@ -1,5 +1,6 @@
 // --- Hamburger Menu Toggle ---
-const mainNav = document.querySelector('.navigation');
+// Fixed: Look for the 'nav' tag instead of '.navigation'
+const mainNav = document.querySelector('nav');
 const hamburgerBtn = document.querySelector('#menu');
 
 hamburgerBtn.addEventListener('click', () => {
@@ -8,10 +9,8 @@ hamburgerBtn.addEventListener('click', () => {
 });
 
 // --- Dynamic Footer Dates ---
-// Set current year
 const currentYear = new Date().getFullYear();
 document.getElementById('currentyear').textContent = currentYear;
 
-// Set last modified date
 const lastModifiedDate = document.lastModified;
 document.getElementById('lastModified').textContent = `Last Modification: ${lastModifiedDate}`;
