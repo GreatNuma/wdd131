@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nigeria Country Information Portal</title>
+    <!-- Fixed: Added required Meta Author tag -->
+    <meta name="author" content="Great Tamarabrakemi Numa">
     <meta name="description" content="An elegant and comprehensive informational portal for Nigeria, showcasing key demographics, geography, and dynamic weather analytics.">
     <link rel="canonical" href="https://example.com/wdd131/place.html">
     <link rel="stylesheet" href="styles/place.css">
@@ -16,7 +18,6 @@
 
     <main>
         <div class="hero-container">
-            <!-- Criterion 4: Srcset picture element swapping WebP sources across viewports -->
             <picture>
                 <source srcset="images/nigerialandscape.webp" media="(min-width: 768px)">
                 <img src="images/nigerialandscape.webp" alt="Beautiful landscape view of Zuma Rock in Nigeria under a clear sky" class="hero-image" width="500" height="700" loading="eager">
@@ -41,16 +42,12 @@
             <section class="card weather-card">
                 <h3 class="weather-title">Current Weather</h3>
                 
-                <!-- Criterion 5: Semantic, accessible SVG icon visible ONLY in mobile view -->
+                <!-- Criterion 5: Extracted to standalone SVG asset reference -->
                 <div class="weather-icon-mobile">
-                    <svg viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Sunny weather icon">
-                        <circle cx="32" cy="32" r="16" fill="#FFB300" />
-                        <path d="M32 4v6M32 54v6M4 32h6M54 32h6M12.2 12.2l4.3 4.3M47.5 47.5l4.3 4.3M12.2 51.8l4.3-4.3M47.5 16.5l4.3-4.3" stroke="#FFB300" stroke-width="4" stroke-linecap="round" />
-                    </svg>
+                    <img src="images/weather.svg" alt="Sunny weather icon" class="weather-svg" width="64" height="64">
                 </div>
 
                 <div class="card-body">
-                    <!-- Adjusted to standard tropical temperature; triggers the safe "N/A" check branch -->
                     <p><span class="label">Temperature:</span> <span class="value"><span id="temp">31</span> °C</span></p>
                     <p><span class="label">Conditions:</span> <span class="value">Sunny</span></p>
                     <p><span class="label">Wind:</span> <span class="value"><span id="wind">12</span> km/h</span></p>
