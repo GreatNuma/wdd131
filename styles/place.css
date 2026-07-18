@@ -1,0 +1,166 @@
+/* --- Global Unique CSS Variables (Nigerian Flag Palette Accentuation) --- */
+:root {
+    --primary-color: #004d25;       /* Rich Nigerian Green (Passes high-contrast WCAG AAA) */
+    --secondary-color: #006633;     /* Bright Accent Green */
+    --text-color: #121212;          /* Clean charcoal readability */
+    --bg-color: #f4fcf7;            /* Ultra-light greenish tint background */
+    --card-bg: #ffffff;
+    --border-color: #cce6d8;
+    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* --- Base Normalization & Universals --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Layout Elements --- */
+header, footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.8rem 1rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+footer p {
+    font-size: 0.95rem;
+    margin: 0.4rem 0;
+}
+
+/* --- Mobile Stacked Architecture --- */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Structural Repetition and Visual Alignment Rules */
+.card {
+    background-color: var(--card-bg);
+    margin: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 77, 37, 0.04);
+    overflow: hidden;
+}
+
+.card h2, .card h3 {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 1rem 1.2rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.card-body {
+    padding: 1rem 1.4rem;
+}
+
+.card-body p {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #edf7f2;
+}
+
+.card-body p:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    color: #2b2b2b;
+}
+
+/* Criterion 5 Layout: Center SVG graphic layout in mobile view */
+.weather-icon-mobile {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.2rem;
+}
+
+/* --- Criterion 6 & 8: Desktop Grid Overlays (Wider Screens) --- */
+@media (min-width: 768px) {
+    main {
+        max-width: 1250px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+    }
+
+    .hero-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        border: 4px solid var(--primary-color);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .hero-container picture, .hero-image {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        width: 100%;
+        height: 540px;
+    }
+
+    /* Transform cards into high-contrast image overlays */
+    .card {
+        grid-row: 1 / -1;
+        width: 320px;
+        z-index: 5;
+        margin: 0 2.5rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Desktop Headers swap styling to alternative identity green */
+    .card h2, .card h3 {
+        background-color: var(--secondary-color);
+    }
+
+    .data-card {
+        grid-column: 1 / -1;
+        justify-self: start;
+    }
+
+    .weather-card {
+        grid-column: 1 / -1;
+        justify-self: end;
+    }
+
+    /* Criterion 5: Completely hide the mobile weather SVG */
+    .weather-icon-mobile {
+        display: none;
+    }
+
+    /* Criterion 6: Pseudo-element rendering wide view desktop emoticon icon */
+    .weather-title::after {
+        content: " ☀️";
+        font-size: 1.4rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
